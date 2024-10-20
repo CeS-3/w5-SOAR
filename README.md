@@ -57,14 +57,3 @@
 - **Github**: https://github.com/w5teams/w5 (感觉项目好的请来个 Star)
 - **前端**：https://github.com/w5teams/w5_web (前端才是 W5 的核心)
 
-## 如何赞助
-
-<img src="./images/sk.jpeg" width="400">
-
-## 深入交流
-
-**如对此产品想深入了解** 或 **部署遇到问题的请加我微信进用户反馈群**
-
-请备注：**`W5`**, **`SOAR`** 方便实时进群
-
-<img src="./images/wx.jpg" width="400">
