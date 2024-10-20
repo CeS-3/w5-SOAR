@@ -1,0 +1,28 @@
+{
+    "identification": "w5soar",               
+    "is_public": true,                        
+    "name": "my hello world",                     
+    "version": "122.1111111111111",                         
+    "description": "W5 SOAR -My Hello World jwe",    
+    "type": "基本应用",                       
+    "action": [                               
+      {
+        "name": "MyHelloWorld",                  
+        "func": "my_hello_world"                 
+      }
+    ],
+    "args": {                                 
+      "my_hello_world": [                        
+        {
+          "key": "name1",                      
+          "type": "text",                     
+          "required": true                    
+        },
+        {
+          "key": "name2",                      
+          "type": "text",                     
+          "required": true                    
+        }
+      ]
+    }
+}

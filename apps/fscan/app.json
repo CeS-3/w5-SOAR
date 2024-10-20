@@ -1,0 +1,28 @@
+{
+    "identification": "w5soar",
+    "is_public": true,
+    "name": "fscan",
+    "version": "0.1",
+    "description": "一款端口扫描工具",
+    "type": "安全扫描",
+    "action": [
+      {
+        "name": "扫描",
+        "func": "scan"
+      }
+    ],
+    "args": {
+      "scan": [
+        {
+          "key": "target",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "ports",
+          "type": "text",
+          "required": false
+        }
+      ]
+    }
+  }

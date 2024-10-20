@@ -1,0 +1,21 @@
+127.0.0.1:22 open
+43.133.210.45:22 open
+47.236.21.16:22 open
+47.236.21.16:22 open
+47.236.21.16:22 open
+47.236.21.16:22 open
+47.236.21.16:22 open
+47.236.21.16:80 open
+47.236.21.16:443 open
+[*] WebTitle http://47.236.21.16       code:200 len:19136  title:pwn.hust.college
+[*] WebTitle https://47.236.21.16      code:500 len:579    title:500 Internal Server Error
+47.236.21.16:22 open
+47.236.21.16:443 open
+47.236.21.16:80 open
+[*] WebTitle http://47.236.21.16       code:200 len:19136  title:pwn.hust.college
+[*] WebTitle https://47.236.21.16      code:500 len:579    title:500 Internal Server Error
+47.236.21.16:443 open
+47.236.21.16:22 open
+47.236.21.16:80 open
+[*] WebTitle http://47.236.21.16       code:200 len:19136  title:pwn.hust.college
+[*] WebTitle https://47.236.21.16      code:500 len:579    title:500 Internal Server Error

@@ -1,0 +1,70 @@
+{
+  "identification": "w5soar",
+  "is_public": true,
+  "name": "intelligent_decision-making",
+  "version": "1.0",
+  "description": "智能安全决策接口",
+  "type": "安全决策",
+  "action": [
+    {
+      "name": "事件信息传递",
+      "func": "send_event"
+    },
+    {
+      "name": "响应策略建议",
+      "func": "get_response_suggestions"
+    },
+    {
+      "name": "事件状态更新",
+      "func": "update_event_status"
+    }
+  ],
+  "args": {
+    "send_event": [
+      {
+        "key": "event_id",
+        "type": "string",
+        "required": true
+      },
+      {
+        "key": "event_type",
+        "type": "string",
+        "required": true
+      },
+      {
+        "key": "severity",
+        "type": "string",
+        "required": true
+      },
+      {
+        "key": "detected_at",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "key": "details",
+        "type": "object",
+        "required": true
+      }
+    ],
+    "get_response_suggestions": [
+      {
+        "key": "event_id",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "update_event_status": [
+      {
+        "key": "event_id",
+        "type": "string",
+        "required": true
+      },
+      {
+        "key": "new_status",
+        "type": "string",
+        "required": true
+      }
+    ]
+  }
+}
