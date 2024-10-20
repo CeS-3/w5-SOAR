@@ -1,10 +1,10 @@
 {
   "identification": "w5soar",
   "is_public": true,
-  "name": "intelligent_decision-making",
+  "name": "智能安全决策",
   "version": "1.0",
   "description": "智能安全决策接口",
-  "type": "安全决策",
+  "type": "信息查询",
   "action": [
     {
       "name": "事件信息传递",
@@ -23,46 +23,46 @@
     "send_event": [
       {
         "key": "event_id",
-        "type": "string",
+        "type": "text",
         "required": true
       },
       {
         "key": "event_type",
-        "type": "string",
+        "type": "text",
         "required": true
       },
       {
         "key": "severity",
-        "type": "string",
+        "type": "text",
         "required": true
       },
       {
         "key": "detected_at",
-        "type": "datetime",
+        "type": "text",
         "required": true
       },
       {
         "key": "details",
-        "type": "object",
+        "type": "text",
         "required": true
       }
     ],
     "get_response_suggestions": [
       {
         "key": "event_id",
-        "type": "string",
+        "type": "text",
         "required": true
       }
     ],
     "update_event_status": [
       {
         "key": "event_id",
-        "type": "string",
+        "type": "text",
         "required": true
       },
       {
         "key": "new_status",
-        "type": "string",
+        "type": "text",
         "required": true
       }
     ]

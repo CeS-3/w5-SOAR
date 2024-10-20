@@ -34,6 +34,23 @@ async def get_response_suggestions(event_id):
 
     response_data = r.json()
     if response_data["status"] == "success":
+        # 对获取到的suggestions进行处理
+        # 如直接从suggesitons里获得到攻击的类型
+        attack_type = response_data["suggestions"]["attack_type"]
+        # 根据attack_type获取到的攻击类型 查询数据库找到对应剧本uuid
+        uuid = "00000"
+        # 请求对应的webhook获取启动该应对剧本
+        headers = {
+            "Content-Type": "application/json"
+        }
+
+        data = {
+            "key": "3B63AC1D9F36E9A1BF6EA3611F5FF2A7",
+            "uuid": uuid,
+            "data": response_data["suggestions"]
+        }
+        r = requests.post(url="http://localhost:8888/api/v1/w5/webhook", headers=headers, data=json.dumps(data))
+        
         return {"status": 0, "suggestions": response_data["suggestions"]}
     else:
         return {"status": 2, "message": "获取响应策略建议失败"}

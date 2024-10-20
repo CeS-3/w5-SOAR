@@ -1,7 +1,7 @@
 {
   "identification": "w5soar",
   "is_public": true,
-  "name": "intelligent_detection",
+  "name": "智能化入侵检测",
   "version": "1.0",
   "description": "智能化入侵检测部分提供的API，用于接收安全事件信息",
   "type": "入侵检测",
