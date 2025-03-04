@@ -316,4 +316,70 @@ CREATE TABLE `w5_workflow` (
 BEGIN;
 COMMIT;
 
+-- ----------------------------
+-- Table structure for w5_alert
+-- ----------------------------
+DROP TABLE IF EXISTS `w5_alert`;
+CREATE TABLE `w5_alert` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `alert_id` varchar(36) NOT NULL COMMENT 'UUID',
+  `timestamp` datetime NOT NULL COMMENT '告警时间',
+  `source_ip` varchar(45) NOT NULL COMMENT '攻击来源IP',
+  `destination_ip` varchar(45) NOT NULL COMMENT '受害者IP',
+  `source_port` int DEFAULT NULL COMMENT '攻击来源端口',
+  `destination_port` int DEFAULT NULL COMMENT '受害者端口',
+  `protocol` varchar(10) NOT NULL COMMENT '协议类型',
+  `attack_type` varchar(50) NOT NULL COMMENT '攻击类型',
+  `severity` varchar(20) NOT NULL COMMENT '告警级别',
+  `signature` text COMMENT '匹配规则/特征',
+  `detection_system` varchar(100) NOT NULL COMMENT '检测系统名称',
+  `correlation_id` varchar(36) DEFAULT NULL COMMENT '关联告警ID',
+  `status` tinyint NOT NULL DEFAULT '0' COMMENT '处理状态：0未处理，1已处理',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_alert_id` (`alert_id`),
+  KEY `idx_timestamp` (`timestamp`),
+  KEY `idx_source_ip` (`source_ip`),
+  KEY `idx_destination_ip` (`destination_ip`),
+  KEY `idx_severity` (`severity`),
+  KEY `idx_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='安全告警信息表';
+
+-- ----------------------------
+-- Table structure for w5_analysis
+-- ----------------------------
+DROP TABLE IF EXISTS `w5_analysis`;
+CREATE TABLE `w5_analysis` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `analysis_id` varchar(36) NOT NULL COMMENT 'UUID',
+  `timestamp` datetime NOT NULL COMMENT '分析时间',
+  `attack_summary` text NOT NULL COMMENT '攻击行为描述',
+  `affected_systems` text NOT NULL COMMENT '受影响系统（JSON格式）',
+  `potential_risk` text NOT NULL COMMENT '潜在风险',
+  `recommended_actions` text NOT NULL COMMENT '建议措施（JSON格式）',
+  `notes` text COMMENT '补充说明',
+  `status` tinyint NOT NULL DEFAULT '0' COMMENT '处理状态：0未处理，1已处理',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_analysis_id` (`analysis_id`),
+  KEY `idx_timestamp` (`timestamp`),
+  KEY `idx_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='安全分析信息表';
+
+-- ----------------------------
+-- Table structure for w5_alert_analysis
+-- ----------------------------
+DROP TABLE IF EXISTS `w5_alert_analysis`;
+CREATE TABLE `w5_alert_analysis` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `analysis_id` varchar(36) NOT NULL COMMENT '分析ID',
+  `alert_id` varchar(36) NOT NULL COMMENT '告警ID',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_analysis_alert` (`analysis_id`, `alert_id`),
+  KEY `idx_alert_id` (`alert_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='告警分析关联表';
+
 SET FOREIGN_KEY_CHECKS = 1;

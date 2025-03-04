@@ -80,3 +80,7 @@ class Analysis(db.Model):
     __table__ = 'w5_analysis'
     __timestamps__ = False
 
+class AlertAnalysis(db.Model):
+    __table__ = 'w5_alert_analysis'
+    __timestamps__ = False
+
