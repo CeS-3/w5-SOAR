@@ -71,3 +71,12 @@ class RoleNav(db.Model):
 class UserRole(db.Model):
     __table__ = 'w5_user_role'
     __timestamps__ = False
+
+class Alert(db.Model):
+    __table__ = 'w5_alert'
+    __timestamps__ = False
+
+class Analysis(db.Model):
+    __table__ = 'w5_analysis'
+    __timestamps__ = False
+

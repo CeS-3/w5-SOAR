@@ -37,9 +37,11 @@ def init_route(app):
     from core.view.timer import r as r_timer
     from core.view.workflow import ws as ws_workflow
     from core.view.audit import r as r_audit
+    from core.view.alert import r as r_alert
+    from core.view.analysis import r as r_analysis
 
     route_list = [r_login, r_user, r_type, r_variablen, r_system, r_apps, r_workflow, r_logs, r_dashboard, r_api,
-                  r_report, r_timer, r_audit]
+                  r_report, r_timer, r_audit, r_alert, r_analysis]
 
     for route in route_list:
         app.register_blueprint(route, url_prefix="/api/v1/w5")
